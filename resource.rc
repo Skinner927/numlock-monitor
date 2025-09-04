@@ -1,0 +1,5 @@
+#define IDI_ICON_BLACK 101
+#define IDI_ICON_WHITE 102
+
+IDI_ICON_BLACK ICON "icon.ico"
+IDI_ICON_WHITE ICON "icon_white.ico"

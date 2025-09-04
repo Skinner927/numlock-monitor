@@ -1,0 +1,2 @@
+#define IDI_ICON_BLACK 101
+#define IDI_ICON_WHITE 102
