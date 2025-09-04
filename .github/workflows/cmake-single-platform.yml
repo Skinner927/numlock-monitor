@@ -5,6 +5,7 @@ name: Build & Release Numlock Monitor
 on:
   push:
     branches: [ "main" ]
+    tags: ["v*"]
   pull_request:
     branches: [ "main" ]
 
@@ -44,6 +45,7 @@ jobs:
 
     - name: Upload binary artifacts
       uses: actions/upload-artifact@v4
+      if: github.ref_type != 'tag'
       with:
         name: numlock_monitor_bin_${{ github.sha }}
         path: ./NumlockMonitor.exe
@@ -52,7 +54,7 @@ jobs:
         
     - name: Release
       uses: softprops/action-gh-release@v2
-      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      if: github.ref_type == 'tag'
       with:
         name: numlock_monitor-${{ github.sha }}
         files: ./NumlockMonitor.exe
