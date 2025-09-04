@@ -52,6 +52,10 @@ jobs:
         
     - name: Release
       uses: softprops/action-gh-release@v2
-      if: github.event_name == "push" && github.ref == "refs/heads/main"
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       with:
+        name: numlock_monitor-${{ github.sha }}
         files: ./NumlockMonitor.exe
+        draft: false
+        prerelease: false
+        fail_on_unmatched_files: true
