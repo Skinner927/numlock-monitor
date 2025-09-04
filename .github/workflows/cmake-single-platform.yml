@@ -40,13 +40,13 @@ jobs:
     
     - name: Move built binary
       # Have to move binary because softprops/action-gh-release@v2 can't handle backslashes
-      run: cp "${{github.workspace}}/build/${{env.BUILD_TYPE}}/NumlockMonitor.exe" "${{github.workspace}}/NumlockMonitor.exe"
+      run: cp "${{github.workspace}}/build/${{env.BUILD_TYPE}}/NumlockMonitor.exe" ./NumlockMonitor.exe
 
     - name: Upload binary artifacts
       uses: actions/upload-artifact@v4
       with:
         name: numlock_monitor_bin_${{ github.sha }}
-        path: ${{github.workspace}}/build/NumlockMonitor.exe
+        path: ./NumlockMonitor.exe
         if-no-files-found: error
         retention-days: 5
         
